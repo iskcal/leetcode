@@ -1,0 +1,15 @@
+        num = 0
+        subs = []
+        max_num = 0
+        for c in s:
+            if c not in subs:
+                num = num + 1
+                subs.append(c)
+            else:
+                pos = subs.index(c)
+                num = num - pos
+                subs.append(c)
+                subs = subs[pos+1:]
+            if num > max_num:
+                max_num = num
+        return max_num

@@ -1,0 +1,27 @@
+        m = len(nums1)
+        n = len(nums2)
+        mi = (m+n)/2-1 if (m+n)%2==0 else (m+n-1)/2
+        
+        i=j=0
+        cur=0
+        while nums1 or nums2:
+            v1 = float('inf')
+            v2 = float('inf')
+            val = 0
+            if i < m:
+                v1 = nums1[i]
+            if j < n:
+                v2 = nums2[j]
+            if v1 <= v2:
+                i = i+1
+                val = v1
+            else:
+                j = j+1
+                val = v2
+            if cur == mi:
+                data1 = val
+            elif cur == mi + 1:
+                data2 = val
+                break
+            cur = cur+1
+        return float(data1) if (m+n)%2!=0 else (data1+data2)/2

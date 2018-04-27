@@ -1,0 +1,8 @@
+        if len(nums) <= 1:
+            return False
+        sum_dict = {};
+        for i in range(len(nums)):
+            if target - nums[i] in sum_dict:
+                return [sum_dict[target-nums[i]], i]
+            else:
+                sum_dict[nums[i]] = i
